@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Receipt</title>
+    <link rel="stylesheet" href="BOOKING DETAILS.CSS">
+</head>
+<body>
+    <div class="container">
+        <div class="receipt">
+            <h2>Booking Receipt</h2>
+            <p><strong>Haircut:</strong> <span id="receipt-haircut"></span></p>
+            <p><strong>Name:</strong> <span id="receipt-name"></span></p>
+            <p><strong>Telephone Number:</strong> <span id="receipt-phone"></span></p>
+            <p><strong>Booking Date:</strong> <span id="receipt-date"></span></p>
+            <p><strong>Payment Method:</strong> <span id="receipt-payment-method"></span></p>
+            <button id="print-receipt-button" onclick="printReceipt()">Print Receipt</button>
+        </div>
+    </div>
+    <script>
+        // Retrieve booking details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const haircut = urlParams.get('haircut');
+        const name = urlParams.get('name');
+        const phone = urlParams.get('phone');
+        const date = urlParams.get('date');
+        const paymentMethod = urlParams.get('payment_method');
+
+        // Fill the receipt with booking details
+        document.getElementById('receipt-haircut').textContent = haircut;
+        document.getElementById('receipt-name').textContent = name;
+        document.getElementById('receipt-phone').textContent = phone;
+        document.getElementById('receipt-date').textContent = date;
+        document.getElementById('receipt-payment-method').textContent = paymentMethod;
+
+        function printReceipt() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

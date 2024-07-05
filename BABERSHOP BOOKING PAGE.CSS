@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: rgba(46, 45, 45, 0.959);
+    background-size: cover;
+    display: flex;
+} 
+
+fieldset {
+    margin-top: -190px;
+    border: 2px solid #1f1b1b; /* Dark gray border */
+    border-radius: 10px;
+    padding: 20px;
+    background: rgba(19, 26, 26, 0.541);
+    margin-right: -270px;
+    margin-left: -700px;
+    text-indent: 290px;
+}
+.sidebar {
+    width: 170px;
+    background: rgba(17, 24, 26, 0.377); /* Set your desired background color */
+    color: #ecf0f1;
+    padding: 20px;
+    position: absolute;
+    height: 100vh;
+    border: 2px solid #3b3b3b; /* Dark gray border */
+    border-radius: 10px;
+    margin-top: -900px; /* Corrected typo: lowercase 'px' */
+    bottom: 400px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add a subtle backlit effect */
+    transform: translateZ(10px); /* Create a 3D effect */
+}
+
+.sidebar2 {
+    width: 170px;
+    background: rgba(17, 24, 26, 0.377); /* Set your desired background color */
+    color: #ecf0f1;
+    padding: 30px;
+    position: absolute;
+    height: 100vh;
+    border: 2px solid #3b3b3b; /* Dark gray border */
+    border-radius: 10px;
+    margin-top: 1200px;
+    margin-left: 1670px;
+    bottom: 400px;
+    
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add a subtle backlit effect */
+    transform: translateZ(10px); /* Create a 3D effect */
+}
+
+
+
+
+.main-content {
+    margin-left: 150px;
+    padding: 260px;
+    width: 100%;
+    margin-top: -100px;
+}
+
+.haircuts-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.haircut {
+    background: rgba(1, 21, 24, 0.377);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+.haircut img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.haircut h3 {
+    margin: 10px 0;
+}
+
+.cart {
+    margin-top: 20px;
+    background: rgba(89, 122, 97, 0.788);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cart h2 {
+    margin-top: 0;
+}
+
+.cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart ul li {
+    margin: 10px 0;
+}

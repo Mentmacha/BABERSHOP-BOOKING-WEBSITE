@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - Upload Images</title>
+    <link rel="stylesheet" href="ADMIN PAGE.CSS">
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="BABERSHOP LOGIN.HTML"><button>LOGOUT</button></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <fieldset>
+            <center><h1>Upload Haircut Images</h1></center>
+        </fieldset>
+        <div class="upload-container">
+            <form id="upload-form" action="ADMIN UPLOAD.PHP" method="post" enctype="multipart/form-data">
+                <label for="image">Choose Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <div class="image-preview" id="image-preview"></div>
+                <label for="haircut-name">Haircut Name:</label>
+                <input type="text" id="haircut-name" name="haircut_name" required>
+                <label for="haircut-price">Haircut Price:</label>
+                <input type="text" id="haircut-price" name="haircut_price" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('image').addEventListener('change', function(event) {
+            const preview = document.getElementById('image-preview');
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.style.backgroundImage = `url(${e.target.result})`;
+            }
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
+

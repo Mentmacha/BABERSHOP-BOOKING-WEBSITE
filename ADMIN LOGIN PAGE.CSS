@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('BACKGROUND IMAGE 5.webp') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 180PX;
+    background: rgba(0, 0, 0, 0.6); /* Black color with 60% opacity */
+    backdrop-filter: blur(10px); /* Blur effect */
+    z-index: 1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 2; /* Ensure the container is above the blur overlay */
+}
+
+.form-container {
+    background: rgba(32, 25, 25, 0.219); /* White background with 80% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.form-toggle {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.form-toggle button {
+    background: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-content {
+    display: none;
+}
+
+.form-content h2 {
+    color: #000;
+}
+
+.form-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-content form button {
+    background: #e0ac1c;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#login-form.active,
+#signup-form.active {
+    display: block;
+}

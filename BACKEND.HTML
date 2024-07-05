@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Booking</title>
+    <link rel="stylesheet" href="BACKEND.CSS">
+</head>
+<body>
+    <div class="container">
+        <div class="booking-details">
+            <h2>Booking Details</h2>
+            <form id="booking-form" action="BACKEND.PHP" method="post">
+                <fieldset>
+                    <legend>Haircut Details</legend>
+                    <label for="haircut">Haircut:</label>
+                    <input type="text" id="haircut" name="haircut" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Client Information</legend>
+                    <label for="name">Full Names:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="phone">Telephone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <label for="date">Booking Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Payment Method After Services</legend>
+                    <label for="mpesa">
+                        <input type="radio" id="mpesa" name="payment" value="MPESA" required>
+                        MPESA
+                    </label>
+                    <label for="paypal">
+                        <input type="radio" id="paypal" name="payment" value="PayPal">
+                        PayPal
+                    </label>
+                    <label for="credit_card">
+                        <input type="radio" id="credit_card" name="payment" value="Credit Card">
+                        Bank Credit Card
+                    </label>
+                </fieldset>
+                <button type="submit">BOOK</button>
+                <BR>
+                <BR>
+                <button type="button" id="generate-receipt">Generate Receipt</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('generate-receipt').addEventListener('click', function() {
+            // Get form data
+            const haircut = document.getElementById('haircut').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const payment = document.querySelector('input[name="payment"]:checked').value;
+
+            // Redirect to printable receipt page with query parameters
+            window.location.href = `receipt.php?haircut=${haircut}&name=${name}&phone=${phone}&date=${date}&payment=${payment}`;
+        });
+
+        // Set minimum and maximum dates for the date input field
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('date');
+            const today = new Date();
+            const maxDate = new Date(today);
+            maxDate.setDate(today.getDate() + 7);
+            
+            const formatDate = (date) => {
+                const d = new Date(date);
+                let month = '' + (d.getMonth() + 1);
+                let day = '' + d.getDate();
+                const year = d.getFullYear();
+
+                if (month.length < 2) month = '0' + month;
+                if (day.length < 2) day = '0' + day;
+
+                return [year, month, day].join('-');
+            };
+
+            dateInput.setAttribute('min', formatDate(today));
+            dateInput.setAttribute('max', formatDate(maxDate));
+        });
+    </script>
+</body>
+</html>
+
